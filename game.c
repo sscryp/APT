@@ -262,13 +262,22 @@ void  playGame(Player *player, Cell board[BOARD_HEIGHT][BOARD_WIDTH]) {
 
             }
 
+            else if (strcmp(choice, COMMAND_FORWARD) == 0 || strcmp(choice, COMMAND_FORWARD_SHORTCUT) == 0){
+
+                movePlayerForward(board, player);
+                printf("\n");
+                displayBoard(board, player);
+                showigCommands();
+
+            }
+
             else if (strcmp(choice, quit) == 0) {
 
                 return;
 
             }
 
-            else{
+            else {
 
                 printf("\n");
                 printf("Invalid input\n\n");

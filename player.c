@@ -60,11 +60,34 @@ void turnDirection(Player * player, TurnDirection turnDirection)
 Position getNextForwardPosition(const Player * player)
 {
 
-    /* TODO */
-
     Position position;
 
+    if(player->direction == NORTH){
+
+        position = player->position;
+        position.y --;
+    }
+
+    if(player->direction == SOUTH){
+
+        position = player->position;
+        position.y ++;
+    }
+
+    if(player->direction == WEST){
+
+        position = player->position;
+        position.x --;
+    }
+
+    if(player->direction == EAST){
+
+        position = player->position;
+        position.x ++;
+    }
+
     return position;
+
 }
 
 void updatePosition(Player * player, Position position)

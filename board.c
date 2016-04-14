@@ -66,9 +66,28 @@ Boolean placePlayer(Cell board[BOARD_HEIGHT][BOARD_WIDTH], Position position)
 PlayerMove movePlayerForward(Cell board[BOARD_HEIGHT][BOARD_WIDTH],
                              Player * player)
 {
-    /* TODO*/
 
-    return PLAYER_MOVED;
+    Position position = getNextForwardPosition(player);
+
+    if(board[position.x][position.y] == BLOCKED){
+
+        printf("Error: cannot move forward because the road is blocked");
+
+        return CELL_BLOCKED;
+
+    }
+
+    else if(board[position.x][position.y] < 0 || board[position.x][position.y] > 9){
+
+        printf("The car is at the edge of the board and cannot move further in that direction");
+
+        return OUTSIDE_BOUNDS;
+    }
+
+    else printf("nah");
+
+
+        return PLAYER_MOVED;
 }
 
 void displayBoard(Cell board[BOARD_HEIGHT][BOARD_WIDTH], Player * player)

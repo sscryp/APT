@@ -148,7 +148,7 @@ void initialiseGame()
                                     }
 
 
-                                    else if(strcmp(tok, DIRECTION_EAST) == 0 || strcmp(tok, DIRECTION_WEST) == 0 || strcmp(tok, DIRECTION_NORTH) == 0 || strcmp(tok, DIRECTION_SOUTH) == 0 && placePlayer(board, position) == FALSE){
+                                    else if((strcmp(tok, DIRECTION_EAST) == 0 || strcmp(tok, DIRECTION_WEST) == 0 || strcmp(tok, DIRECTION_NORTH) == 0 || strcmp(tok, DIRECTION_SOUTH) == 0) && placePlayer(board, position) == FALSE){
 
                                         printf("\n");
                                         printf("The cell is blocked\n\n");

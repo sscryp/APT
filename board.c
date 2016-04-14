@@ -71,7 +71,8 @@ PlayerMove movePlayerForward(Cell board[BOARD_HEIGHT][BOARD_WIDTH],
 
     if(board[position.x][position.y] == BLOCKED){
 
-        printf("Error: cannot move forward because the road is blocked");
+        printf("\n");
+        printf("Error: cannot move forward because the road is blocked\n");
 
         return CELL_BLOCKED;
 
@@ -79,12 +80,13 @@ PlayerMove movePlayerForward(Cell board[BOARD_HEIGHT][BOARD_WIDTH],
 
     else if(board[position.x][position.y] < 0 || board[position.x][position.y] > 9){
 
-        printf("The car is at the edge of the board and cannot move further in that direction");
+        printf("\n");
+        printf("The car is at the edge of the board and cannot move further in that direction\n");
 
         return OUTSIDE_BOUNDS;
     }
 
-    else printf("nah");
+    else printf("NAH");
 
 
         return PLAYER_MOVED;

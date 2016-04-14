@@ -92,7 +92,7 @@ Position getNextForwardPosition(const Player * player)
 
 void updatePosition(Player * player, Position position)
 {
-    /* TODO */
+
 }
 
 void displayDirection(Direction direction) {

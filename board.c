@@ -53,8 +53,6 @@ Boolean placePlayer(Cell board[BOARD_HEIGHT][BOARD_WIDTH], Position position)
 {
     if(board[position.x][position.y] == BLOCKED) {
 
-
-
         return FALSE;
 
     }

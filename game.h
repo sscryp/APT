@@ -32,8 +32,8 @@
  *
  * Note that if you don't break this function up it could become pretty big...
  */
-void playGame();
-void initialiseGame(Player *player, Cell board[BOARD_HEIGHT][BOARD_WIDTH]);
+void initialiseGame();
+void playGame(Player *player, Cell board[BOARD_HEIGHT][BOARD_WIDTH]);
 void showigCommands();
 
 #endif

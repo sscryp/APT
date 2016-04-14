@@ -1,6 +1,6 @@
 #include "game.h"
 
-void playGame()
+void initialiseGame()
 {
     Cell board[BOARD_HEIGHT][BOARD_WIDTH];
 
@@ -92,7 +92,7 @@ void playGame()
 
                                     /*if input is NORTH*/
 
-                                    if(strcmp(tok, "north") == 0 && placePlayer(board, position) == TRUE){
+                                    if(strcmp(tok, DIRECTION_NORTH) == 0 && placePlayer(board, position) == TRUE){
 
                                         direction = NORTH;
                                         placePlayer(board, position);
@@ -100,13 +100,13 @@ void playGame()
                                         printf("\n");
                                         displayBoard(board, player);
                                         showigCommands();
-                                        initialiseGame(player, board);
+                                        playGame(player, board);
 
                                     }
 
                                     /*if input is SOUTH*/
 
-                                    else if(strcmp(tok, "south") == 0 && placePlayer(board, position) == TRUE){
+                                    else if(strcmp(tok, DIRECTION_SOUTH) == 0 && placePlayer(board, position) == TRUE){
 
                                         direction = SOUTH;
                                         placePlayer(board, position);
@@ -114,14 +114,14 @@ void playGame()
                                         printf("\n");
                                         displayBoard(board, player);
                                         showigCommands();
-                                        initialiseGame(player, board);
+                                        playGame(player, board);
 
 
                                     }
 
                                     /*if input is WEST*/
 
-                                    else if(strcmp(tok, "west") == 0 && placePlayer(board, position) == TRUE){
+                                    else if(strcmp(tok, DIRECTION_WEST) == 0 && placePlayer(board, position) == TRUE){
 
                                         direction = WEST;
                                         placePlayer(board, position);
@@ -129,13 +129,13 @@ void playGame()
                                         printf("\n");
                                         displayBoard(board, player);
                                         showigCommands();
-                                        initialiseGame(player, board);
+                                        playGame(player, board);
 
                                     }
 
                                     /*if input is EAST*/
 
-                                    else if(strcmp(tok, "east") == 0 && placePlayer(board, position) == TRUE){
+                                    else if(strcmp(tok, DIRECTION_EAST) == 0 && placePlayer(board, position) == TRUE){
 
                                         direction = EAST;
                                         placePlayer(board, position);
@@ -143,21 +143,19 @@ void playGame()
                                         printf("\n");
                                         displayBoard(board, player);
                                         showigCommands();
-                                        initialiseGame(player, board);
-
-
-
+                                        playGame(player, board);
 
                                     }
 
-                                    else if(placePlayer(board, position) == FALSE){
+
+                                    else if(strcmp(tok, DIRECTION_EAST) == 0 || strcmp(tok, DIRECTION_WEST) == 0 || strcmp(tok, DIRECTION_NORTH) == 0 || strcmp(tok, DIRECTION_SOUTH) == 0 && placePlayer(board, position) == FALSE){
 
                                         printf("\n");
                                         printf("The cell is blocked\n\n");
 
                                     }
 
-                                    else {
+                                    else if(strcmp(tok, DIRECTION_EAST) != 0 || strcmp(tok, DIRECTION_WEST) != 0 || strcmp(tok, DIRECTION_NORTH) != 0 || strcmp(tok, DIRECTION_SOUTH) != 0) {
 
                                         printf("\n");
                                         printf("Invalid input\n\n");
@@ -168,15 +166,49 @@ void playGame()
 
                                 }
 
+                                else {
+
+                                    printf("\n");
+                                    printf("Invalid input\n\n");
 
                                 }
 
+
+                                }
+
+                            else {
+
+                                printf("\n");
+                                printf("Invalid input\n\n");
+
                             }
+
+                            }
+
+                        else {
+
+                            printf("\n");
+                            printf("Invalid input\n\n");
 
                         }
 
+                        }
+
+                    else {
+
+                        printf("\n");
+                        printf("Invalid input\n\n");
+
                     }
 
+                    }
+
+                else {
+
+                    printf("\n");
+                    printf("Invalid input\n\n");
+
+                }
 
                 }
 
@@ -200,7 +232,7 @@ void playGame()
 
 
 
-void initialiseGame(Player *player, Cell board[BOARD_HEIGHT][BOARD_WIDTH]) {
+void  playGame(Player *player, Cell board[BOARD_HEIGHT][BOARD_WIDTH]) {
 
     while (TRUE) {
 

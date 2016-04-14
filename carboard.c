@@ -28,7 +28,7 @@ void showMenu() {
             printf("load <g>\n");
             printf("quit\n\n");
 
-            playGame();
+            initialiseGame();
 
         }
 

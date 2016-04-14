@@ -1,5 +1,4 @@
 #include "game.h"
-#include "carboard.h"
 
 void playGame()
 {
@@ -89,11 +88,11 @@ void playGame()
 
                                 if((tok = strtok(tok, ",")) != NULL){
 
-                                    //NUMX and NUMY are stored at THIS POINT
+                                    /*NUMX and NUMY are stored at THIS POINT*/
 
                                     /*if input is NORTH*/
 
-                                    if(strcmp(tok, "north") == 0){
+                                    if(strcmp(tok, "north") == 0 && placePlayer(board, position) == TRUE){
 
                                         direction = NORTH;
                                         placePlayer(board, position);
@@ -107,7 +106,7 @@ void playGame()
 
                                     /*if input is SOUTH*/
 
-                                    else if(strcmp(tok, "south") == 0){
+                                    else if(strcmp(tok, "south") == 0 && placePlayer(board, position) == TRUE){
 
                                         direction = SOUTH;
                                         placePlayer(board, position);
@@ -117,11 +116,12 @@ void playGame()
                                         showigCommands();
                                         initialiseGame(player, board);
 
+
                                     }
 
                                     /*if input is WEST*/
 
-                                    else if(strcmp(tok, "west") == 0){
+                                    else if(strcmp(tok, "west") == 0 && placePlayer(board, position) == TRUE){
 
                                         direction = WEST;
                                         placePlayer(board, position);
@@ -135,7 +135,7 @@ void playGame()
 
                                     /*if input is EAST*/
 
-                                    else if(strcmp(tok, "east") == 0){
+                                    else if(strcmp(tok, "east") == 0 && placePlayer(board, position) == TRUE){
 
                                         direction = EAST;
                                         placePlayer(board, position);
@@ -147,6 +147,13 @@ void playGame()
 
 
 
+
+                                    }
+
+                                    else if(placePlayer(board, position) == FALSE){
+
+                                        printf("\n");
+                                        printf("The cell is blocked\n\n");
 
                                     }
 
@@ -173,7 +180,7 @@ void playGame()
 
                 }
 
-            //END OF THE INITIALISATION MENU
+            /*END OF THE INITIALISATION MENU*/
 
             else {
 

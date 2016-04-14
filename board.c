@@ -53,8 +53,8 @@ Boolean placePlayer(Cell board[BOARD_HEIGHT][BOARD_WIDTH], Position position)
 {
     if(board[position.x][position.y] == BLOCKED) {
 
-        printf("\n");
-        printf("The cell is blocked\n\n");
+
+
         return FALSE;
 
     }

@@ -8,7 +8,6 @@ void initialiseGame()
 
         char str1[] = {"load 1"};
         char str2[] = {"load 2"};
-        char str3[] = {"quit"};
         char *tok;
         int numx;
         int numy;

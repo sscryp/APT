@@ -86,10 +86,15 @@ PlayerMove movePlayerForward(Cell board[BOARD_HEIGHT][BOARD_WIDTH],
         return OUTSIDE_BOUNDS;
     }
 
-    else printf("NAH");
+    else {
 
+        board[player->position.x][player->position.y] = EMPTY;
+        updatePosition(player, position);
+        board[player->position.x][player->position.y] = PLAYER;
 
         return PLAYER_MOVED;
+    }
+
 }
 
 void displayBoard(Cell board[BOARD_HEIGHT][BOARD_WIDTH], Player * player)

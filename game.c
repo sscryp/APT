@@ -68,23 +68,23 @@ void initialiseGame()
 
                 if ((tok = strtok(tok, ",")) != NULL) {
 
-                    numx = (int) strtol(tok, &end, 10);
+                    numy = (int) strtol(tok, &end, 10);
 
-                    if (numx >= 0 && numx <= 9) {
+                    if (numy>= 0 && numy <= 9) {
 
                         tok = NULL;
 
-                        position.x = numx;
+                        position.y = numy;
 
                         if((tok = strtok(tok, ",")) != NULL){
 
-                            numy = (int) strtol(tok, &end, 10);
+                            numx = (int) strtol(tok, &end, 10);
 
-                            if(numy >= 0 && numy <= 9){
+                            if(numx >= 0 && numx <= 9){
 
                                 tok = NULL;
 
-                                position.y = numy;
+                                position.x = numx;
 
                                 if((tok = strtok(tok, ",")) != NULL){
 

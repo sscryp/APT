@@ -1,4 +1,5 @@
 #include "player.h"
+#include "board.h"
 
 void initialisePlayer(Player * player, Position position, Direction direction)
 {
@@ -68,19 +69,19 @@ Position getNextForwardPosition(const Player * player)
         position.y --;
     }
 
-    if(player->direction == SOUTH){
+    else if(player->direction == SOUTH){
 
         position = player->position;
         position.y ++;
     }
 
-    if(player->direction == WEST){
+    else if(player->direction == WEST){
 
         position = player->position;
         position.x --;
     }
 
-    if(player->direction == EAST){
+    else if(player->direction == EAST){
 
         position = player->position;
         position.x ++;
@@ -92,6 +93,8 @@ Position getNextForwardPosition(const Player * player)
 
 void updatePosition(Player * player, Position position)
 {
+    player->position = position;
+    player->position = getNextForwardPosition(player);
 
 }
 

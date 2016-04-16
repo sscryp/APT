@@ -78,7 +78,7 @@ PlayerMove movePlayerForward(Cell board[BOARD_HEIGHT][BOARD_WIDTH],
 
     }
 
-    else if(board[position.x][position.y] < 0 || board[position.x][position.y] > 9){
+    else if(position.x < 0 || position.y < 0 || position.x > 9 || position.y > 9){
 
         printf("\n");
         printf("The car is at the edge of the board and cannot move further in that direction\n");

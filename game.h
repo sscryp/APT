@@ -35,5 +35,6 @@
 void initialiseGame();
 void playGame(Player *player, Cell board[BOARD_HEIGHT][BOARD_WIDTH]);
 void showigCommands();
+void showinitMenu();
 
 #endif

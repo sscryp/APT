@@ -66,25 +66,25 @@ Position getNextForwardPosition(const Player * player)
     if(player->direction == NORTH){
 
         position = player->position;
-        position.y --;
+        position.x --;
     }
 
     else if(player->direction == SOUTH){
 
         position = player->position;
-        position.y ++;
+        position.x ++;
     }
 
     else if(player->direction == WEST){
 
         position = player->position;
-        position.x --;
+        position.y --;
     }
 
     else if(player->direction == EAST){
 
         position = player->position;
-        position.x ++;
+        position.y ++;
     }
 
     return position;
@@ -94,8 +94,6 @@ Position getNextForwardPosition(const Player * player)
 void updatePosition(Player * player, Position position)
 {
     player->position = position;
-    player->position = getNextForwardPosition(player);
-
 }
 
 void displayDirection(Direction direction) {

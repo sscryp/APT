@@ -8,6 +8,13 @@
 #define STUDENT_ID "s3457702"
 #define STUDENT_EMAIL "s3457702@student.rmit.edu.au"
 
+
+typedef struct choice
+{
+    char choice;
+
+} Choice;
+
 /**
  * Main menu option 2 - show your student information as per the specification.
  *

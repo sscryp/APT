@@ -2,16 +2,15 @@
 
 int main() {
 
-    printf("\n");
-    printf("Welcome to Car Board \n");
-    printf("-------------------- \n");
-    printf("1. Play game \n");
-    printf("2. Show student's information \n");
-    printf("3. Quit \n\n");
+        printf("\n");
+        printf("Welcome to Car Board \n");
+        printf("-------------------- \n");
+        printf("1. Play game \n");
+        printf("2. Show student's information \n");
+        printf("3. Quit \n\n");
 
-    showMenu();
-    return 0;
-
+        showMenu();
+        return 0;
 }
 
 

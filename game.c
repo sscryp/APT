@@ -29,9 +29,7 @@ void initialiseGame()
                 printf("\n");
                 loadBoard(board, BOARD_1);
                 displayBoard(board, NULL);
-                printf("load <g>\n");
-                printf("init <x>,<y>,<direction>\n");
-                printf("quit\n\n");
+                showinitMenu();
 
 
             }
@@ -41,13 +39,11 @@ void initialiseGame()
                 printf("\n");
                 loadBoard(board, BOARD_2);
                 displayBoard(board, NULL);
-                printf("load <g>\n");
-                printf("init <x>,<y>,<direction>\n");
-                printf("quit\n\n");
+                showinitMenu();
 
             }
 
-            else if (strcmp(choice, str3) == 0) {
+            else if (strcmp(choice, COMMAND_QUIT) == 0) {
 
                 printf("\n");
                 printf("Welcome to Car Board \n");
@@ -62,7 +58,7 @@ void initialiseGame()
             /*START OF THE INITIALISATION MENU*/
             /*It checks the initialisation input*/
 
-            else if((tok = strtok(choice, " ")) != NULL && strcmp(tok, "init") == 0){
+            else if((tok = strtok(choice, " ")) && strcmp(tok, COMMAND_INIT) == 0){
 
                 tok = NULL;
 
@@ -223,7 +219,7 @@ void initialiseGame()
 
         }
 
-        while (strcmp(choice, str1) != 0 && strcmp(choice, str2) != 0 && strcmp(choice, str3) != 0);
+        while (strcmp(choice, str1) != 0 && strcmp(choice, str2) != 0 && strcmp(choice, COMMAND_QUIT) != 0);
     }
 
 }
@@ -250,6 +246,7 @@ void  playGame(Player *player, Cell board[BOARD_HEIGHT][BOARD_WIDTH]) {
                 printf("\n");
                 displayBoard(board, player);
                 showigCommands();
+                player->moves ++;
 
             }
 
@@ -259,6 +256,7 @@ void  playGame(Player *player, Cell board[BOARD_HEIGHT][BOARD_WIDTH]) {
                 printf("\n");
                 displayBoard(board, player);
                 showigCommands();
+                player->moves ++;
 
             }
 
@@ -268,11 +266,14 @@ void  playGame(Player *player, Cell board[BOARD_HEIGHT][BOARD_WIDTH]) {
                 printf("\n");
                 displayBoard(board, player);
                 showigCommands();
+                player->moves ++;
 
             }
 
-            else if (strcmp(choice, quit) == 0) {
+            else if (strcmp(choice, COMMAND_QUIT) == 0) {
 
+                printf("Total player moves: ");
+                printf("%i\n\n", player->moves);
                 return;
 
             }
@@ -289,10 +290,18 @@ void  playGame(Player *player, Cell board[BOARD_HEIGHT][BOARD_WIDTH]) {
     }
 }
 
-void showigCommands(){
 
+/*GENERAL MENU INSTRUCTIONS*/
+
+void showigCommands(){
     printf("forward\n");
     printf("turn_left (or l)\n");
     printf("turn_right (or l)\n");
+    printf("quit\n\n");
+}
+
+void showinitMenu(){
+    printf("load <g>\n");
+    printf("init <x>,<y>,<direction>\n");
     printf("quit\n\n");
 }

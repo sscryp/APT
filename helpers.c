@@ -11,6 +11,7 @@ void readRestOfLine() {
     clearerr(stdin);
 }
 
+/*Checks if the input is an integer and buffer controls*/
 int validateNumber() {
 
     char line[LINE_LEN + EXTRA_SPACES];
@@ -37,6 +38,7 @@ int validateNumber() {
 
 }
 
+/*Checks if the input is a string and buffer controls*/
 char * validateString(){
     char line[LINE_LEN + EXTRA_SPACES];
     char *end = malloc(strlen(line) + EXTRA_SPACES);

@@ -28,6 +28,8 @@ Cell BOARD_2[BOARD_HEIGHT][BOARD_WIDTH] =
     { EMPTY, BLOCKED, BLOCKED, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY }
 };
 
+
+/*Initialises the empty board*/
 void initialiseBoard(Cell board[BOARD_HEIGHT][BOARD_WIDTH])
 {
     int x, y;
@@ -38,6 +40,8 @@ void initialiseBoard(Cell board[BOARD_HEIGHT][BOARD_WIDTH])
     }
 }
 
+
+/*Initialises the desired board depending on the x and y values*/
 void loadBoard(Cell board[BOARD_HEIGHT][BOARD_WIDTH],
                Cell boardToLoad[BOARD_HEIGHT][BOARD_WIDTH])
 {
@@ -49,6 +53,10 @@ void loadBoard(Cell board[BOARD_HEIGHT][BOARD_WIDTH],
     }
 }
 
+
+/*Checks the x and y values and returns FALSE for another function to print an error
+ * Places the player if cell is empty
+ * */
 Boolean placePlayer(Cell board[BOARD_HEIGHT][BOARD_WIDTH], Position position)
 {
     if(board[position.x][position.y] == BLOCKED) {
@@ -63,6 +71,7 @@ Boolean placePlayer(Cell board[BOARD_HEIGHT][BOARD_WIDTH], Position position)
         return TRUE;
 }
 
+/*Gets the next cell values and prints an error if the next cell is blocked or if its out of bounds*/
 PlayerMove movePlayerForward(Cell board[BOARD_HEIGHT][BOARD_WIDTH],
                              Player * player)
 {
@@ -97,6 +106,7 @@ PlayerMove movePlayerForward(Cell board[BOARD_HEIGHT][BOARD_WIDTH],
 
 }
 
+/*Displays the chosen board*/
 void displayBoard(Cell board[BOARD_HEIGHT][BOARD_WIDTH], Player * player)
 {
     int x,y;

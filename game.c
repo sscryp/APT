@@ -1,11 +1,13 @@
 #include "game.h"
 
+/*INITIALISATION MENU
+ * User chooses which board to play on and initialises the game*/
+
 void initialiseGame()
 {
-    Cell board[BOARD_HEIGHT][BOARD_WIDTH];
-
-    while(TRUE) {
-
+    while(TRUE){
+        
+        Cell board[BOARD_HEIGHT][BOARD_WIDTH];
         char str1[] = {"load 1"};
         char str2[] = {"load 2"};
         char *tok;
@@ -18,7 +20,6 @@ void initialiseGame()
         Player *player;
         Player player2;
         player = &player2;
-
         do {
 
             choice = validateString();
@@ -44,12 +45,6 @@ void initialiseGame()
 
             else if (strcmp(choice, COMMAND_QUIT) == 0) {
 
-                printf("\n");
-                printf("Welcome to Car Board \n");
-                printf("-------------------- \n");
-                printf("1. Play game \n");
-                printf("2. Show student's information \n");
-                printf("3. Quit \n\n");
                 return;
 
             }
@@ -57,7 +52,7 @@ void initialiseGame()
             /*START OF THE INITIALISATION MENU*/
             /*It checks the initialisation input*/
 
-            else if((tok = strtok(choice, " ")) && strcmp(tok, COMMAND_INIT) == 0){
+            else if((tok = strtok(choice, " ")) && strcmp(tok, COMMAND_INIT) == 0){ /*Splits input and checks if the first input is "init"*/
 
                 tok = NULL;
 
@@ -69,7 +64,7 @@ void initialiseGame()
 
                         tok = NULL;
 
-                        position.y = numy;
+                        position.y = numy; /*Players initial y coord on the board*/
 
                         if((tok = strtok(tok, ",")) != NULL){
 
@@ -79,7 +74,7 @@ void initialiseGame()
 
                                 tok = NULL;
 
-                                position.x = numx;
+                                position.x = numx; /*Players initial x coord on the board*/
 
                                 if((tok = strtok(tok, ",")) != NULL){
 
@@ -88,7 +83,6 @@ void initialiseGame()
                                     /*if input is NORTH*/
 
                                     if(strcmp(tok, DIRECTION_NORTH) == 0 && placePlayer(board, position) == TRUE){
-
                                         direction = NORTH;
                                         placePlayer(board, position);
                                         initialisePlayer(player, position, direction);
@@ -96,7 +90,7 @@ void initialiseGame()
                                         displayBoard(board, player);
                                         showigCommands();
                                         playGame(player, board);
-
+                                        break;
                                     }
 
                                     /*if input is SOUTH*/
@@ -110,7 +104,7 @@ void initialiseGame()
                                         displayBoard(board, player);
                                         showigCommands();
                                         playGame(player, board);
-
+                                        break;
 
                                     }
 
@@ -125,7 +119,7 @@ void initialiseGame()
                                         displayBoard(board, player);
                                         showigCommands();
                                         playGame(player, board);
-
+                                        break;
                                     }
 
                                     /*if input is EAST*/
@@ -139,9 +133,12 @@ void initialiseGame()
                                         displayBoard(board, player);
                                         showigCommands();
                                         playGame(player, board);
-
+                                        break;
                                     }
 
+
+
+                                    /*Checks if cell initial player position is blocked returns an error*/
 
                                     else if((strcmp(tok, DIRECTION_EAST) == 0 || strcmp(tok, DIRECTION_WEST) == 0 || strcmp(tok, DIRECTION_NORTH) == 0 || strcmp(tok, DIRECTION_SOUTH) == 0) && placePlayer(board, position) == FALSE){
 
@@ -150,16 +147,17 @@ void initialiseGame()
 
                                     }
 
+                                    /*Checks the direction bit and returns an error if not entered correctly*/
+
                                     else if(strcmp(tok, DIRECTION_EAST) != 0 || strcmp(tok, DIRECTION_WEST) != 0 || strcmp(tok, DIRECTION_NORTH) != 0 || strcmp(tok, DIRECTION_SOUTH) != 0) {
 
                                         printf("\n");
                                         printf("Invalid input\n\n");
 
                                     }
-
-
-
+                                        
                                 }
+                                /*Checks X and returns an error if not entered correctly*/
 
                                 else {
 
@@ -171,6 +169,8 @@ void initialiseGame()
 
                                 }
 
+                            /*Checks Y and returns an error if not entered correctly*/
+
                             else {
 
                                 printf("\n");
@@ -179,6 +179,8 @@ void initialiseGame()
                             }
 
                             }
+
+                        /*Checks "init" string and returns an error if not entered correctly*/
 
                         else {
 
@@ -216,23 +218,21 @@ void initialiseGame()
 
             }
 
-        }
-
-        while (strcmp(choice, str1) != 0 && strcmp(choice, str2) != 0 && strcmp(choice, COMMAND_QUIT) != 0);
+        }while (strcmp(choice, COMMAND_QUIT) != 0);
+        break;
     }
-
 }
 
 
 
-
+/*IN GAME MENU
+ * User can input three in game commands and play the game on desired board*/
 
 void  playGame(Player *player, Cell board[BOARD_HEIGHT][BOARD_WIDTH]) {
 
     while (TRUE) {
 
         char *choice;
-        char quit[] = "quit";
 
 
         do {
@@ -271,6 +271,7 @@ void  playGame(Player *player, Cell board[BOARD_HEIGHT][BOARD_WIDTH]) {
 
             else if (strcmp(choice, COMMAND_QUIT) == 0) {
 
+                printf("\n");
                 printf("Total player moves: ");
                 printf("%i\n\n", player->moves);
                 return;
@@ -283,7 +284,7 @@ void  playGame(Player *player, Cell board[BOARD_HEIGHT][BOARD_WIDTH]) {
                 printf("Invalid input\n\n");
             }
 
-        } while (choice != NULL);
+        } while (strcmp(choice, COMMAND_QUIT) != 0);
 
 
     }

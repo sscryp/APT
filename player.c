@@ -1,6 +1,6 @@
 #include "player.h"
-#include "board.h"
 
+/*Initialises the player for placement*/
 void initialisePlayer(Player * player, Position position, Direction direction)
 {
     player->position = position;
@@ -9,6 +9,7 @@ void initialisePlayer(Player * player, Position position, Direction direction)
 
 }
 
+/*Checks player direction and turns it depending on the input*/
 void turnDirection(Player * player, TurnDirection turnDirection)
 {
     if(turnDirection == TURN_LEFT){
@@ -58,6 +59,8 @@ void turnDirection(Player * player, TurnDirection turnDirection)
     }
 }
 
+
+/*Determines the next cell depending on the player's direction*/
 Position getNextForwardPosition(const Player * player)
 {
 
@@ -91,11 +94,14 @@ Position getNextForwardPosition(const Player * player)
 
 }
 
+/*Updates player's position to the next position*/
 void updatePosition(Player * player, Position position)
 {
     player->position = position;
 }
 
+
+/*Determines player's direction for the initialisation*/
 void displayDirection(Direction direction) {
     if (direction == NORTH) {
 

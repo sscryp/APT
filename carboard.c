@@ -2,22 +2,23 @@
 
 int main() {
 
+        showMenu();
+        return EXIT_SUCCESS;
+}
+
+/*MAIN MENU
+ * Displays main menu choices*/
+void showMenu() {
+    Cell board[BOARD_HEIGHT][BOARD_WIDTH];
+    while (TRUE) {
+        int choice;
         printf("\n");
         printf("Welcome to Car Board \n");
         printf("-------------------- \n");
         printf("1. Play game \n");
         printf("2. Show student's information \n");
         printf("3. Quit \n\n");
-
-        showMenu();
-        return 0;
-}
-
-
-void showMenu() {
-    Cell board[BOARD_HEIGHT][BOARD_WIDTH];
-    while (TRUE) {
-        int choice = validateNumber();
+        choice = validateNumber();
         if (choice == 1) {
 
             showCommands();
@@ -28,13 +29,11 @@ void showMenu() {
             printf("quit\n\n");
 
             initialiseGame();
-
         }
 
         if (choice == 2) {
 
             showStudentInformation();
-
         }
 
         if (choice == 3) {
@@ -42,12 +41,14 @@ void showMenu() {
             printf("\n");
             printf("Good Bye!\n\n");
 
-            return;
+            break;
 
         }
     }
 }
 
+
+/*Displays commands */
 void showCommands(){
 
     printf("\n");
@@ -64,6 +65,7 @@ void showCommands(){
     printf("quit \n\n");
 }
 
+/*Displays student information*/
 void showStudentInformation()
 {
     printf("\n");
